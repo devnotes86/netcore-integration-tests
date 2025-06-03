@@ -1,0 +1,29 @@
+﻿@model HeavyMetalBands.Models.BandDTO
+
+@{
+    ViewData["Title"] = "Create Band";
+}
+
+<h2>Create Band</h2>
+
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="BandName" class="control-label"></label>
+        <input asp-for="BandName" class="form-control" />
+        <span asp-validation-for="BandName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="YearCreated" class="control-label"></label>
+        <input asp-for="YearCreated" class="form-control" />
+        <span asp-validation-for="YearCreated" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

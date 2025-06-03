@@ -1,0 +1,77 @@
+## .NET Core / ASP.NET Core
+.vs/
+bin/
+obj/
+out/
+appsettings.Development.json
+appsettings.*.json
+appsettings.json
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Backup & transient files
+*.bak
+*.tmp
+*.temp
+
+# Publish outputs
+publish/
+
+# Test results
+TestResults/
+*.coverage
+*.coveragejson
+*.testresults
+
+# dotCover
+.idea/.idea.DotSettings
+.idea/.idea.DotSettings.user
+
+# Logs
+*.log
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# EF Core Migrations
+Migrations/
+
+# Secrets
+secrets.json
+
+# Others
+*.db
+*.sqlite
+
+# JetBrains Rider
+.idea/
+*.sln.iml
