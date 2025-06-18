@@ -1,5 +1,4 @@
-﻿using HeavyMetalBands.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace HeavyMetalBands.Data
 {

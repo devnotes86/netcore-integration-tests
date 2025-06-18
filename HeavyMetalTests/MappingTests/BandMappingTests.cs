@@ -1,6 +1,4 @@
 using HeavyMetalBands.Models;
-
-
 using AutoMapper;
 using HeavyMetalBands.Maping;
 
@@ -39,9 +37,7 @@ namespace HeavyMetalTests.MappingTests
             // Assert
             Assert.Equal(dto.Id, dao.id);
             Assert.Equal(dto.BandName, dao.band_name);
-            Assert.Equal(dto.YearCreated, dao.year_created); 
-
-            
+            Assert.Equal(dto.YearCreated, dao.year_created);
         }
 
         [Fact]

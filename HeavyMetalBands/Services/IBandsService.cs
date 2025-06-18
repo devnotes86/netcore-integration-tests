@@ -9,6 +9,5 @@ namespace HeavyMetalBands.Services
         Task AddAsync(BandDTO band);
         Task UpdateAsync(BandDTO band);
         Task DeleteAsync(int id);
-
     }
 }

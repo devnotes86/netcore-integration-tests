@@ -15,11 +15,13 @@ namespace HeavyMetalBands.Repositories
             _writeContext = writeContext;
         }
 
+        // AsNoTracking() assures no issues while testing (EF seeing conflicting ids in memory from 2 datacontexts)
         public async Task<IEnumerable<BandDAO>> GetAllAsync() =>
-            await _readContext.Bands.ToListAsync();
+            await _readContext.Bands.AsNoTracking().ToListAsync();
 
+        // AsNoTracking() assures no issues while testing (EF seeing conflicting ids in memory from 2 datacontexts)
         public async Task<BandDAO> GetByIdAsync(int id) =>
-            await _readContext.Bands.FindAsync(id);
+            await _readContext.Bands.AsNoTracking().FirstOrDefaultAsync(b => b.id == id);
 
         public async Task AddAsync(BandDAO band)
         {
@@ -29,8 +31,15 @@ namespace HeavyMetalBands.Repositories
 
         public async Task UpdateAsync(BandDAO band)
         {
-            _writeContext.Bands.Update(band);
+
+            var existing = await _writeContext.Bands.FindAsync(band.id);
+
+            if (existing == null)
+                return;
+
+            _writeContext.Entry(existing).CurrentValues.SetValues(band);
             await _writeContext.SaveChangesAsync();
+
         }
 
         public async Task DeleteAsync(int id)

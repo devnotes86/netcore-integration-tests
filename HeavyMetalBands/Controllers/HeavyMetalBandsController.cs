@@ -1,4 +1,3 @@
-
 using HeavyMetalBands.Models;
 using HeavyMetalBands.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +20,17 @@ namespace HeavyMetalBands.Controllers
             var bands = await _bandsService.GetAllAsync();
             return View(bands);
         }
+
+
+        [HttpGet("Details/{id}")]
+        public async Task<IActionResult> Details(int id)
+        {
+            // using ReadDbContext
+            var band = await _bandsService.GetByIdAsync(id);
+            return View(band);
+
+        }
+
 
 
         [HttpGet("Create")]

@@ -3,9 +3,23 @@ using Microsoft.EntityFrameworkCore;
 using HeavyMetalBands.Services;
 using HeavyMetalBands.Repositories;
 using HeavyMetalBands.Maping;
-using AutoMapper;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Use Autofac
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+
+// Register services in Autofac container
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
+{
+    containerBuilder.RegisterType<BandsService>().As<IBandsService>().InstancePerLifetimeScope(); 
+    containerBuilder.RegisterType<BandsRepository>().As<IBandsRepository>().InstancePerLifetimeScope();
+
+});
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
@@ -18,8 +32,8 @@ builder.Services.AddDbContext<DbContext_Read>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("ReadDb")));
 
 // defining Dependency Injection for Service and repository
-builder.Services.AddTransient<IBandsService, BandsService>();
-builder.Services.AddTransient<IBandsRepository, BandsRepository>();
+//builder.Services.AddTransient<IBandsService, BandsService>();
+//builder.Services.AddTransient<IBandsRepository, BandsRepository>();
 
 
 // Register all mappings found across the application
@@ -53,3 +67,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
+// Make the implicit Program class public so test projects can access it
+public partial class Program { }

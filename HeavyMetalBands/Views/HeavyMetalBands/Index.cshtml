@@ -20,7 +20,7 @@
         {
             <tr>
                 <td>@band.Id</td>
-                <td>@band.BandName</td>
+                <td><a href="@Url.Action("Details", "HeavyMetalBands", new { id = band.Id })">@band.BandName</a></td>
                 <td class="text-end">@band.YearCreated</td>
                 <td class="text-end">
                     <form asp-action="Delete" asp-route-id="@band.Id" method="post" onsubmit="return confirm('Do you really want to delete @band.BandName?');">

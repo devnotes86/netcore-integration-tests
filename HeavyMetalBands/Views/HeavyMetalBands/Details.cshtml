@@ -1,0 +1,31 @@
+﻿@model BandDTO
+
+@{
+    ViewData["Title"] = "Bands Details";
+}
+
+<h2>Bands Details</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Band Name</th>
+            <th class="text-end">Created (Year)</th>
+            <th class ="text-end"></th>
+        </tr>
+    </thead>
+    <tbody>
+         
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.BandName</td>
+                <td class="text-end">@Model.YearCreated</td>
+                <td class="text-end">
+                <form asp-action="Delete" asp-route-id="@Model.Id" method="post" onsubmit="return confirm('Do you really want to delete @Model.BandName?');">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr> 
+    </tbody>
+</table>

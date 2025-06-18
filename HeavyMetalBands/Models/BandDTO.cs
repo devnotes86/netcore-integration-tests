@@ -13,7 +13,6 @@ namespace HeavyMetalBands.Models
         [Range(1900, 2100, ErrorMessage = "Enter a valid year.")]
         public int YearCreated { get; set; }
 
-          
         public string BandNameUppercase { get; set; }
     }
 
