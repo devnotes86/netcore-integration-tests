@@ -15,8 +15,6 @@ namespace HeavyMetalTests
             builder.RegisterType<BandsRepository>().As<IBandsRepository>();
             builder.RegisterType<BandsService>().As<IBandsService>();
 
-
-
             builder.Register(ctx =>
             {
                 var config = new MapperConfiguration(cfg =>
@@ -26,8 +24,6 @@ namespace HeavyMetalTests
 
                 return config.CreateMapper();
             }).As<IMapper>().SingleInstance();
-
-
 
 
             // Register in-memory EF Core context
@@ -58,7 +54,5 @@ namespace HeavyMetalTests
                 return new DbContext_Write(options);
             }).AsSelf().InstancePerLifetimeScope();
         }
-
-
     }
 }
