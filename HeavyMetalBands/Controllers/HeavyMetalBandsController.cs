@@ -32,15 +32,14 @@ namespace HeavyMetalBands.Controllers
         }
 
 
-
         [HttpGet("Create")]
         public IActionResult Create()
         {
             return View();
         }
 
-        [HttpPost("Create")]
-        [ValidateAntiForgeryToken]
+
+       [HttpPost("Create")] 
         public async Task<IActionResult> Create(BandDTO band)
         {
             if (!ModelState.IsValid)
@@ -51,8 +50,8 @@ namespace HeavyMetalBands.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost("Delete/{id:int}")]
-        [ValidateAntiForgeryToken]
+
+        [HttpPost("Delete/{id:int}")] 
         public async Task<IActionResult> Delete(int id)
         {
 

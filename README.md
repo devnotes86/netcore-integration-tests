@@ -1,4 +1,4 @@
-appsettings.json file is exclided from Git:
+appsettings.json file is excluded from Git:
 
 {
    
