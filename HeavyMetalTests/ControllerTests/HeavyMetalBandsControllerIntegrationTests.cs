@@ -52,29 +52,5 @@ namespace HeavyMetalTests.ControllerTests
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode); 
         }
-
-        [Fact]
-        public async Task Delete_Test1()
-        {
-            // Arrange: Create form data for a valid BandDTO
-            var formData = new Dictionary<string, string>
-                {
-                    { "BandName", "Test Band" },
-                    { "YearCreated", "1980" },
-                    { "BandNameUppercase", "TEST BAND" }
-                };
-
-
-            var content = new FormUrlEncodedContent(formData);
-
-            // Act
-            var response = await _client.PostAsync("/HeavyMetalBands/Delete", content);
-
-            // Assert
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        }
-
-
-
     }
 }

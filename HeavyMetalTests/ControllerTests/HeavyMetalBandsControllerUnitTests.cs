@@ -50,8 +50,6 @@ namespace HeavyMetalTests.ControllerTests
             Assert.Equal(2, model.Count);
             Assert.Equal("Iron Maiden", model.Find(x => x.Id == 1).BandName);
             Assert.Equal("Judas Priest", model.Find(x => x.Id == 2).BandName);
-        }
-
-
+        } 
     }
 }
